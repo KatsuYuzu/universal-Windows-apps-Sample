@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Xaml.Interactivity;
+using System;
 using System.Globalization;
-using System.Text;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Microsoft.Xaml.Interactivity;
 
 namespace WindowSizeSample
 {
@@ -55,7 +53,7 @@ namespace WindowSizeSample
 
         #region MinimalLayoutState
         /// <summary>
-        /// 狭いの幅のレイアウトをあらわす状態名を取得または設定します。
+        /// 狭い幅のレイアウトをあらわす状態名を取得または設定します。
         /// </summary>
         [CustomPropertyValueEditor(CustomPropertyValueEditor.StateName)]
         public string MinimalLayoutState
@@ -172,18 +170,13 @@ namespace WindowSizeSample
 
             if (width < 500)
             {
-                stateName = this.MinimalLayoutState;
+                stateName = this.MinimalLayoutState ?? this.PortraitLayoutState;
             }
             else if (width < height)
             {
                 stateName = this.PortraitLayoutState;
             }
             else
-            {
-                stateName = this.DefaultLayoutState;
-            }
-
-            if (string.IsNullOrWhiteSpace(stateName))
             {
                 stateName = this.DefaultLayoutState;
             }
