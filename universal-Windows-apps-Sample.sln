@@ -4,12 +4,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShareSample", "ShareSample", "{0DEC21EA-6D96-4C86-B36A-EC82CC2A2536}"
+	ProjectSection(SolutionItems) = preProject
+		ShareSample\README.md = ShareSample\README.md
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ShareSample.Shared", "ShareSample\ShareSample.Shared\ShareSample.Shared.shproj", "{3972D9F5-5806-47E6-97BE-3ECE11C43F2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareSample.Windows", "ShareSample\ShareSample.Windows\ShareSample.Windows.csproj", "{D24EFB84-1DFD-445B-8ED4-AB18C0159C43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareSample.WindowsPhone", "ShareSample\ShareSample.WindowsPhone\ShareSample.WindowsPhone.csproj", "{57C1227C-4D3D-4299-AD3C-A01E1FBC5317}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF294495-D5A5-4E3D-B833-9170599EF114}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
