@@ -1,0 +1,47 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:WindowSizeSample"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      x:Class="WindowSizeSample.MainPage"
+      mc:Ignorable="d">
+
+    <Interactivity:Interaction.Behaviors>
+        <local:LayoutChangeBehavior DefaultLayoutState="DefaultState"
+                                    MinimalLayoutState="MinimalState"
+                                    PortraitLayoutState="PortraitState" />
+    </Interactivity:Interaction.Behaviors>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LayoutStateGroup">
+                <VisualState x:Name="DefaultState" />
+                <VisualState x:Name="MinimalState">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)"
+                                                       Storyboard.TargetName="textBlock">
+                            <DiscreteObjectKeyFrame KeyTime="0"
+                                                    Value="幅の狭いレイアウト" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="PortraitState">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)"
+                                                       Storyboard.TargetName="textBlock">
+                            <DiscreteObjectKeyFrame KeyTime="0"
+                                                    Value="縦長のレイアウト" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <TextBlock x:Name="textBlock"
+                   Style="{StaticResource HeaderTextBlockStyle}"
+                   Text="通常のレイアウト"
+                   Margin="10"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" />
+    </Grid>
+</Page>

@@ -6,6 +6,7 @@ universal Windows apps - サンプル
 ====
 
 1. [共有](/ShareSample)
+1. [さまざまなウィンドウ サイズに対応する](/WindowSizeSample)
 
 License
 -------
