@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // 空白ページのアイテム テンプレートについては、http://go.microsoft.com/fwlink/?LinkId=234238 を参照してください
@@ -38,6 +29,7 @@ namespace ShareSample
         /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            // アプリケーション内で1度のみ購読する、または、画面毎などで適切に購読と解除を行う
             DataTransferManager.GetForCurrentView().DataRequested += OnDataRequested;
         }
 
@@ -67,14 +59,19 @@ namespace ShareSample
         /// <param name="e"></param>
         private void OnDataRequested(DataTransferManager sender, DataRequestedEventArgs e)
         {
-            e.Request.Data.Properties.Title = "データのタイトル";
-            e.Request.Data.Properties.Description = "データの説明";
+            // 必須
+            e.Request.Data.Properties.Title = "共有するデータのタイトル";
+            e.Request.Data.Properties.Description = "共有するデータの説明";
+
+            // 以下、適宜
+
+            // 共有する文字列
             e.Request.Data.SetText("共有するテキスト！");
 
-            // 共有データの拡張子
+            // 共有するファイルの拡張子
             e.Request.Data.Properties.FileTypes.Add(".jpg");
 
-            // デリゲートの共有
+            // 共有するファイルを処理するデリゲート
             e.Request.Data.SetDataProvider(
                 StandardDataFormats.StorageItems,
                 this.OnDeferredImageRequestedHandler);
@@ -82,10 +79,11 @@ namespace ShareSample
 
         async void OnDeferredImageRequestedHandler(DataProviderRequest request)
         {
-            // 非同期処理の開始（非同期の場合に必要）
+            // 非同期処理の開始
             var deferral = request.GetDeferral();
             try
             {
+                // ファイルの非同期操作
 #if WINDOWS_APP
                 // 適当なファイルを用意
                 var files = (await KnownFolders.PicturesLibrary.GetFilesAsync())
@@ -97,12 +95,12 @@ namespace ShareSample
                     .Where(x => Path.GetExtension(x.Name) == ".jpg")
                     .Take(1);
 #endif
-                // 共有データをセット
+                // 共有するファイル
                 request.SetData(files);
             }
             finally
             {
-                // 非同期処理の終了（非同期の場合に必要）
+                // 非同期処理の終了
                 deferral.Complete();
             }
         }

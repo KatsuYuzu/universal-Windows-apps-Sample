@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.DataTransfer.ShareTarget;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -39,14 +29,17 @@ namespace ShareSample
                 return;
             }
 
+            // 共有されたデータのタイトルと説明
             this.receivedDataTitle.Text = shareOperation.Data.Properties.Title;
             this.receivedDataDescription.Text = shareOperation.Data.Properties.Description;
 
-            // StorageItems の共有の確認
+            // StorageItems の共有を確認
             if (shareOperation.Data.Contains(StandardDataFormats.StorageItems))
             {
-                // 共有されたアイテムの取得
-                IReadOnlyList<IStorageItem> storageItems= await shareOperation.Data.GetStorageItemsAsync();
+                // 共有されたデータの取得
+                var storageItems= await shareOperation.Data.GetStorageItemsAsync();
+
+                // 以下、適宜
 
                 // ファイルの抽出
                 var file = storageItems
