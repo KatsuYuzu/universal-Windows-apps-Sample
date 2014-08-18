@@ -13,6 +13,7 @@
     </Interactivity:Interaction.Behaviors>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="LayoutStateGroup">
                 <VisualState x:Name="LandscapeState">
@@ -27,6 +28,7 @@
                 <VisualState x:Name="PortraitState" />
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
         <TextBlock x:Name="textBlock"
                    Style="{StaticResource HeaderTextBlockStyle}"
                    Text="縦長のレイアウト"

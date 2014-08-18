@@ -154,7 +154,7 @@ namespace WindowSizeSample
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void OnSizeChanged(object sender, WindowSizeChangedEventArgs e)
+        void OnSizeChanged(object sender, WindowSizeChangedEventArgs e)
         {
             this.GoToState(e.Size.Width, e.Size.Height);
         }
@@ -164,12 +164,16 @@ namespace WindowSizeSample
         /// </summary>
         /// <param name="width">ウィンドウの幅。</param>
         /// <param name="height">ウインドウの高さ。</param>
-        private void GoToState(double width, double height)
+        void GoToState(double width, double height)
         {
             string stateName;
 
             if (width < 500)
             {
+                // Windows PhoneアプリではWindowsストアアプリに比べて幅が狭くなるので、
+                // この対応をしておくことで2つのレイアウトで済みます。
+
+                // 狭い幅のレイアウトを指定していない場合は、縦長のレイアウトとする。
                 stateName = this.MinimalLayoutState ?? this.PortraitLayoutState;
             }
             else if (width < height)
