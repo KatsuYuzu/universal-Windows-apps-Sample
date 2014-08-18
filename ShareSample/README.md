@@ -17,7 +17,7 @@ DataTransferManager.ShowShareUI();
 共有操作の開始を購読します。
 
 ```csharp
-// アプリケーション内で1度のみ購読する、または、画面毎に購読と解除を行う
+// アプリケーション内で1度のみ購読する、または、画面毎などで適切に購読と解除を行う
 DataTransferManager.GetForCurrentView().DataRequested += OnDataRequested;
 ```
 
