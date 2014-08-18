@@ -82,6 +82,8 @@ void OnLoaded(object sender, RoutedEventArgs e)
 
 ### ウィンドウ サイズによってレイアウトを切り替える
 
+ウィンドウの幅と高さから適切なレイアウトを選択して切り替えます。
+
 ```csharp
 void GoToState(double width, double height)
 {
