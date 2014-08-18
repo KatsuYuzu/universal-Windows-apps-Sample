@@ -8,7 +8,7 @@
       mc:Ignorable="d">
 
     <Interactivity:Interaction.Behaviors>
-        <local:LayoutChangeBehavior DefaultLayoutState="LandscapeState"
+        <local:LayoutChangeBehavior LandscapeLayoutState="LandscapeState"
                                     PortraitLayoutState="PortraitState" />
     </Interactivity:Interaction.Behaviors>
 

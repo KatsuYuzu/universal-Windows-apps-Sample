@@ -8,7 +8,7 @@
       mc:Ignorable="d">
 
     <Interactivity:Interaction.Behaviors>
-        <local:LayoutChangeBehavior DefaultLayoutState="DefaultState"
+        <local:LayoutChangeBehavior LandscapeLayoutState="LandscapeState"
                                     MinimalLayoutState="MinimalState"
                                     PortraitLayoutState="PortraitState" />
     </Interactivity:Interaction.Behaviors>
@@ -16,7 +16,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="LayoutStateGroup">
-                <VisualState x:Name="DefaultState" />
+                <VisualState x:Name="LandscapeState" />
                 <VisualState x:Name="MinimalState">
                     <Storyboard>
                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)"
@@ -39,7 +39,7 @@
         </VisualStateManager.VisualStateGroups>
         <TextBlock x:Name="textBlock"
                    Style="{StaticResource HeaderTextBlockStyle}"
-                   Text="通常のレイアウト"
+                   Text="横長のレイアウト"
                    Margin="10"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center" />

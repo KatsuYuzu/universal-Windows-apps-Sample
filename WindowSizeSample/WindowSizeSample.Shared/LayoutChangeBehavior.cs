@@ -32,20 +32,20 @@ namespace WindowSizeSample
         }
         private DependencyObject associatedObject;
 
-        #region DefaultLayoutState
+        #region LandscapeLayoutState
         /// <summary>
-        /// 通常のレイアウトをあらわす状態名を取得または設定します。
+        /// 横長のレイアウトをあらわす状態名を取得または設定します。
         /// </summary>
         [CustomPropertyValueEditor(CustomPropertyValueEditor.StateName)]
-        public string DefaultLayoutState
+        public string LandscapeLayoutState
         {
-            get { return (string)GetValue(DefaultLayoutStateProperty); }
-            set { SetValue(DefaultLayoutStateProperty, value); }
+            get { return (string)GetValue(LandscapeLayoutStateProperty); }
+            set { SetValue(LandscapeLayoutStateProperty, value); }
         }
 
-        public static readonly DependencyProperty DefaultLayoutStateProperty =
+        public static readonly DependencyProperty LandscapeLayoutStateProperty =
             DependencyProperty.Register(
-                "DefaultLayoutState",
+                "LandscapeLayoutState",
                 typeof(string),
                 typeof(LayoutChangeBehavior),
                 new PropertyMetadata(null));
@@ -178,7 +178,7 @@ namespace WindowSizeSample
             }
             else
             {
-                stateName = this.DefaultLayoutState;
+                stateName = this.LandscapeLayoutState;
             }
 
             VisualStateManager.GoToState(this.resolvedSource, stateName, true);
