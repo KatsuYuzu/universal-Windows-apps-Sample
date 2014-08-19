@@ -145,12 +145,18 @@ public static readonly DependencyProperty LandscapeLayoutStateProperty =
 </Interactivity:Interaction.Behaviors>
 ```
 
+このビヘイビアーはNuGetで配布中のライブラリに含まれています。
+- [NuGet Gallery | Citrus.Interactions](https://www.nuget.org/packages/Citrus.Interactions/)
+
+```
+PM> Install-Package Citrus.Interactions
+```
 
 ## 関連情報
 詳細はブログにまとめています。
 
-1. さまざまなウィンドウ サイズに対応する（未投稿）
-1. [独自のビヘイビアーを作成する](http://katsuyuzu.hatenablog.jp/entry/2013/12/13/080723)
+- [さまざまなウィンドウ サイズに対応する](http://katsuyuzu.hatenablog.jp/entry/2014/08/19/200000)
+- [独自のビヘイビアーを作成する](http://katsuyuzu.hatenablog.jp/entry/2013/12/13/080723)
 
 ## License
 
